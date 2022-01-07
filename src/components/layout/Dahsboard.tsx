@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import {
   ChartBarIcon,
   HomeIcon,
@@ -8,23 +8,54 @@ import {
   XIcon,
 } from "@heroicons/react/outline";
 import { Dialog, Transition } from "@headlessui/react";
-import Index from "../../pages/admin/";
-
-interface Props {}
+import { Link } from "react-router-dom";
+import { Route, useLocation, useParams } from "react-router";
 
 const navigation = [
-  { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
-  { name: "Team", href: "#", icon: UsersIcon, current: false },
-  { name: "Documents", href: "#", icon: InboxIcon, current: false },
-  { name: "Reports", href: "#", icon: ChartBarIcon, current: false },
+  { name: "Dashboard", href: "/admin", icon: HomeIcon, current: true },
+  { name: "Team", href: "/admin/teams", icon: UsersIcon, current: false },
+  {
+    name: "Documents",
+    href: "/admin/documents",
+    icon: InboxIcon,
+    current: false,
+  },
+  {
+    name: "Reports",
+    href: "/admin/reports",
+    icon: ChartBarIcon,
+    current: false,
+  },
 ];
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(" ");
 }
+interface Props {
+  children?: any;
+}
 
-const Dashboard: React.FC<Props> = (props) => {
+const Dashboard: React.FC<Props> = (children) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [selectedPath, setSelectedPath] = useState("/admin");
+  const location = useLocation();
+  // destruc...
+  const { slug } = useParams();
+
+  // it takes slug as params, rerturn compn base of the value slug.
+  function slugParams(slug: any) {
+    switch (slug) {
+      case "teams":
+        return <p>this is teams</p>
+      default:
+        break;
+    }
+  }
+
+  useEffect(() => {
+    const current_path = location.pathname;
+    setSelectedPath(current_path);
+  }, [selectedPath, location]);
 
   return (
     <div className="h-screen flex overflow-hidden bg-white">
@@ -86,11 +117,11 @@ const Dashboard: React.FC<Props> = (props) => {
                 </div>
                 <nav className="mt-5 px-2 space-y-1">
                   {navigation.map((item) => (
-                    <a
+                    <Link
                       key={item.name}
-                      href={item.href}
+                      to={item.href}
                       className={classNames(
-                        item.current
+                        item.href === selectedPath
                           ? "bg-gray-100 text-gray-900"
                           : "text-gray-600 hover:bg-gray-50 hover:text-gray-900",
                         "group flex items-center px-2 py-2 text-sm font-medium rounded-md"
@@ -98,7 +129,7 @@ const Dashboard: React.FC<Props> = (props) => {
                     >
                       <item.icon
                         className={classNames(
-                          item.current
+                          item.href === selectedPath
                             ? "text-gray-500"
                             : "text-gray-400 group-hover:text-gray-500",
                           "mr-4 flex-shrink-0 h-6 w-6"
@@ -106,7 +137,7 @@ const Dashboard: React.FC<Props> = (props) => {
                         aria-hidden="true"
                       />
                       {item.name}
-                    </a>
+                    </Link>
                   ))}
                 </nav>
               </div>
@@ -122,7 +153,7 @@ const Dashboard: React.FC<Props> = (props) => {
                     </div>
                     <div className="ml-3">
                       <p className="text-base font-medium text-gray-700 group-hover:text-gray-900">
-                       A. Ashar 
+                        A. Ashar
                       </p>
                       <p className="text-sm font-medium text-gray-500 group-hover:text-gray-700">
                         View profile
@@ -154,11 +185,11 @@ const Dashboard: React.FC<Props> = (props) => {
               </div>
               <nav className="mt-5 flex-1 px-2 bg-white space-y-1">
                 {navigation.map((item) => (
-                  <a
+                  <Link
                     key={item.name}
-                    href={item.href}
+                    to={item.href}
                     className={classNames(
-                      item.current
+                      item.href === selectedPath
                         ? "bg-gray-100 text-gray-900"
                         : "text-gray-600 hover:bg-gray-50 hover:text-gray-900",
                       "group flex items-center px-2 py-2 text-sm font-medium 2xl:text-xl rounded-md"
@@ -166,7 +197,7 @@ const Dashboard: React.FC<Props> = (props) => {
                   >
                     <item.icon
                       className={classNames(
-                        item.current
+                        item.href === selectedPath
                           ? "text-gray-500"
                           : "text-gray-400 group-hover:text-gray-500",
                         "mr-3 flex-shrink-0 h-6 2xl:h-8 w-6 2xl:w-8"
@@ -174,7 +205,7 @@ const Dashboard: React.FC<Props> = (props) => {
                       aria-hidden="true"
                     />
                     {item.name}
-                  </a>
+                  </Link>
                 ))}
               </nav>
             </div>
@@ -190,7 +221,7 @@ const Dashboard: React.FC<Props> = (props) => {
                   </div>
                   <div className="ml-3">
                     <p className="text-sm 2xl:text-lg font-medium text-gray-700 group-hover:text-gray-900">
-                     A. Ashar 
+                      A. Ashar
                     </p>
                     <p className="text-xs 2xl:text-lg font-medium text-gray-500 group-hover:text-gray-700">
                       View profile
@@ -221,11 +252,7 @@ const Dashboard: React.FC<Props> = (props) => {
               </h1>
             </div>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 2xl:px-14">
-              {/* Replace with your content */}
-              <div className="py-4">
-                <Index />
-              </div>
-              {/* /End replace */}
+              {slugParams(slug)}
             </div>
           </div>
         </main>
