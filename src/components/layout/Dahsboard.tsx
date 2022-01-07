@@ -9,7 +9,7 @@ import {
 } from "@heroicons/react/outline";
 import { Dialog, Transition } from "@headlessui/react";
 import { Link } from "react-router-dom";
-import { Route, useLocation, useParams } from "react-router";
+import { useLocation, useParams } from "react-router";
 
 const navigation = [
   { name: "Dashboard", href: "/admin", icon: HomeIcon, current: true },
@@ -142,7 +142,7 @@ const Dashboard: React.FC<Props> = (children) => {
                 </nav>
               </div>
               <div className="flex-shrink-0 flex border-t border-gray-200 p-4">
-                <a href="#" className="flex-shrink-0 group block">
+                <a href="/" className="flex-shrink-0 group block">
                   <div className="flex items-center">
                     <div>
                       <img
@@ -210,7 +210,7 @@ const Dashboard: React.FC<Props> = (children) => {
               </nav>
             </div>
             <div className="flex-shrink-0 flex border-t border-gray-200 p-4">
-              <a href="#" className="flex-shrink-0 w-full group block">
+              <a href="/" className="flex-shrink-0 w-full group block">
                 <div className="flex items-center">
                   <div>
                     <img
