@@ -4,8 +4,9 @@ import {
   colors,
   extendTheme,
   VechaiProvider,
-  Button,
 } from "@vechaiui/react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Dashboard from "./components/layout/Dahsboard";
 
 function App() {
   const bee: ColorScheme = {
@@ -35,9 +36,11 @@ function App() {
   return (
     <>
       <VechaiProvider theme={theme} colorScheme="bee">
-        <div>
-          <p>Test</p>
-        </div>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/admin" element={<Dashboard />} />
+          </Routes>
+        </BrowserRouter>
       </VechaiProvider>
     </>
   );
