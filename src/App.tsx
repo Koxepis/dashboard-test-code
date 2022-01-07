@@ -7,6 +7,8 @@ import {
 } from "@vechaiui/react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Dashboard from "./components/layout/Dahsboard";
+import Index from "./pages/";
+import LoginPage from "./pages/login";
 
 function App() {
   const bee: ColorScheme = {
@@ -38,7 +40,10 @@ function App() {
       <VechaiProvider theme={theme} colorScheme="bee">
         <BrowserRouter>
           <Routes>
+            <Route path="/*" element={<Index />} />
+            <Route path="/login" element={<LoginPage />} />
             <Route path="/admin" element={<Dashboard />} />
+            <Route path="/admin/:slug" element={<Dashboard />} />
           </Routes>
         </BrowserRouter>
       </VechaiProvider>
