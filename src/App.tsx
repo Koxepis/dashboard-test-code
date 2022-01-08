@@ -9,6 +9,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Dashboard from "./components/layout/Dahsboard";
 import Index from "./pages/";
 import LoginPage from "./pages/login";
+import NoPageFound from "./pages/404";
 
 function App() {
   const bee: ColorScheme = {
@@ -40,10 +41,12 @@ function App() {
       <VechaiProvider theme={theme} colorScheme="bee">
         <BrowserRouter>
           <Routes>
-            <Route path="/*" element={<Index />} />
+            <Route path="/" element={<Index />} />
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/404" element={<NoPageFound />} />
             <Route path="/admin" element={<Dashboard />} />
             <Route path="/admin/:slug" element={<Dashboard />} />
+            <Route path="*" element={<NoPageFound />} />
           </Routes>
         </BrowserRouter>
       </VechaiProvider>

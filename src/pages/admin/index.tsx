@@ -1,10 +1,11 @@
 import { Menu, Transition } from "@headlessui/react";
 import { DotsVerticalIcon } from "@heroicons/react/outline";
 import React, { Fragment } from "react";
+import { Link } from "react-router-dom";
 import ProjectCard from "../../components/elements/ProjectCard";
 import StatsCard from "../../components/elements/StatsCard";
 
-const Index = () => {
+const DashboardPage = () => {
   const projects = [
     {
       id: 1,
@@ -91,7 +92,7 @@ const Index = () => {
       <StatsCard>
         <dl className="rounded-lg bg-white shadow-lg sm:grid sm:grid-cols-3">
           {statsCard.map((stat) => (
-            <div className="flex flex-col border-b border-gray-100 p-6 text-center sm:border-[1px] sm:border-r hover:shadow-xl">
+            <div className="flex flex-col border-b border-gray-100 p-6 text-center sm:border-[1px] sm:border-r">
               <dt className="order-2 mt-2 text-base leading-6 font-normal text-gray-500">
                 {stat.name}
               </dt>
@@ -119,12 +120,12 @@ const Index = () => {
             </div>
             <div className="flex-1 flex items-center justify-between border-t border-r border-b border-gray-200 bg-white rounded-r-md truncate">
               <div className="flex-1 px-4 py-2 text-sm truncate">
-                <a
-                  href="#"
+                <Link
+                  to="/404"
                   className="text-gray-900 font-medium hover:text-gray-600"
                 >
                   {project.title}
-                </a>
+                </Link>
                 <p className="text-gray-500">{project.totalMembers} Members</p>
               </div>
               <Menu as="div" className="flex-shrink-0 pr-2">
@@ -154,8 +155,8 @@ const Index = () => {
                         <div className="py-1">
                           <Menu.Item>
                             {({ active }) => (
-                              <a
-                                href="#"
+                              <Link
+                                to="/404"
                                 className={classNames(
                                   active
                                     ? "bg-gray-100 text-gray-900"
@@ -164,15 +165,15 @@ const Index = () => {
                                 )}
                               >
                                 View
-                              </a>
+                              </Link>
                             )}
                           </Menu.Item>
                         </div>
                         <div className="py-1">
                           <Menu.Item>
                             {({ active }) => (
-                              <a
-                                href="#"
+                              <Link
+                                to="/404"
                                 className={classNames(
                                   active
                                     ? "bg-gray-100 text-gray-900"
@@ -181,13 +182,13 @@ const Index = () => {
                                 )}
                               >
                                 Removed from pinned
-                              </a>
+                              </Link>
                             )}
                           </Menu.Item>
                           <Menu.Item>
                             {({ active }) => (
-                              <a
-                                href="#"
+                              <Link
+                                to="/404"
                                 className={classNames(
                                   active
                                     ? "bg-gray-100 text-gray-900"
@@ -196,7 +197,7 @@ const Index = () => {
                                 )}
                               >
                                 Share
-                              </a>
+                              </Link>
                             )}
                           </Menu.Item>
                         </div>
@@ -213,4 +214,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default DashboardPage;
