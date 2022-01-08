@@ -43,7 +43,6 @@ const TableComponent = (props: Props) => {
                         {...column.getHeaderProps()}
                         scope="col"
                         className={classNames(
-                          "px-6 py-3 whitespace-nowrap text-gray-600 text-xs sm:text-sm font-semibold capitalize tracking-tight",
                           props.headerClass
                         )}
                       >
@@ -55,7 +54,7 @@ const TableComponent = (props: Props) => {
               </thead>
               <tbody
                 {...getTableBodyProps()}
-                className="divide-y divide-gray-800"
+                className="divide-y divide-gray-400"
               >
                 {rows.map((row, i) => {
                   prepareRow(row);
