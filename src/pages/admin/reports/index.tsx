@@ -1,9 +1,10 @@
 import React from 'react'
+import Chart from '../../../components/template/Chart'
 
 const ReportPage = () => {
   return (
     <div>
-     this is the report page 
+     <Chart />
     </div>
   )
 }
