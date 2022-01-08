@@ -2,7 +2,6 @@ import React, { Fragment, useEffect, useState } from "react";
 import {
   ChartBarIcon,
   HomeIcon,
-  InboxIcon,
   MenuIcon,
   UsersIcon,
   XIcon,
