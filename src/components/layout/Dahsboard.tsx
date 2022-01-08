@@ -71,7 +71,7 @@ const Dashboard: React.FC<Props> = (children) => {
   }, [selectedPath, location]);
 
   return (
-    <div className="h-screen flex overflow-hidden bg-white">
+    <div className="h-screen flex overflow-hidden bg-primary">
       <Transition.Root show={sidebarOpen} as={Fragment}>
         <Dialog
           as="div"

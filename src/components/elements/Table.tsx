@@ -4,6 +4,9 @@ import { useTable } from "react-table";
 interface Props {
   columns: any[];
   data: any[];
+  className?: string;
+  headerClass?: string;
+  bodyClass?: string;
 }
 
 const TableComponent = (props: Props) => {
@@ -25,6 +28,7 @@ const TableComponent = (props: Props) => {
           <div
             className={classNames(
               "overflow-hidden rounded-none border-gray-800",
+              props.className
             )}
           >
             <table
@@ -39,7 +43,7 @@ const TableComponent = (props: Props) => {
                         {...column.getHeaderProps()}
                         scope="col"
                         className={classNames(
-                          "px-6 py-3 whitespace-nowrap text-gray-600 text-xs sm:text-sm font-semibold capitalize tracking-tight",
+                          props.headerClass
                         )}
                       >
                         {column.render("Header")}
@@ -50,7 +54,7 @@ const TableComponent = (props: Props) => {
               </thead>
               <tbody
                 {...getTableBodyProps()}
-                className="divide-y divide-gray-800"
+                className="divide-y divide-gray-400"
               >
                 {rows.map((row, i) => {
                   prepareRow(row);
@@ -62,6 +66,7 @@ const TableComponent = (props: Props) => {
                             {...cell.getCellProps()}
                             className={classNames(
                               "px-6 py-4 whitespace-nowrap text-xs sm:text-sm font-normal",
+                              props.bodyClass
                             )}
                           >
                             {cell.render("Cell")}

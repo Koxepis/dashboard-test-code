@@ -133,8 +133,8 @@ const TeamPage = () => {
   );
 
   return (
-    <div>
-      <Table columns={columns} data={data} />
+    <div className="mt-3">
+      <Table columns={columns} data={data} className="bg-white border border-gray-400 rounded-md shadow-md" headerClass="px-6 py-4 text-left text-xs font-medium tracking-wide uppercase font-base text-gray-500" bodyClass="text-gray-900" />
     </div>
   );
 };
