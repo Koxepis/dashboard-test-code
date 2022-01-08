@@ -12,19 +12,12 @@ import { Link } from "react-router-dom";
 import { useLocation, useParams } from "react-router";
 import ReportPage from "../../pages/admin/reports";
 import TeamPage from "../../pages/admin/teams";
-import DocumentsPage from "../../pages/admin/documents";
 import DashboardPage from "../../pages/admin/";
 import NoPageFound from "../../pages/404";
 
 const navigation = [
   { name: "Dashboard", href: "/admin", icon: HomeIcon, current: true },
   { name: "Team", href: "/admin/teams", icon: UsersIcon, current: false },
-  {
-    name: "Documents",
-    href: "/admin/documents",
-    icon: InboxIcon,
-    current: false,
-  },
   {
     name: "Reports",
     href: "/admin/reports",
@@ -56,8 +49,6 @@ const Dashboard: React.FC<Props> = (children) => {
         return <TeamPage />;
       case "reports":
         return <ReportPage />;
-      case "documents":
-        return <DocumentsPage />;
       case "404":
         return <NoPageFound />;
       default:
