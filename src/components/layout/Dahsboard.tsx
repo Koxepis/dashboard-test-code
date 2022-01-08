@@ -10,6 +10,11 @@ import {
 import { Dialog, Transition } from "@headlessui/react";
 import { Link } from "react-router-dom";
 import { useLocation, useParams } from "react-router";
+import ReportPage from "../../pages/admin/reports";
+import TeamPage from "../../pages/admin/teams";
+import DocumentsPage from "../../pages/admin/documents";
+import DashboardPage from "../../pages/admin/";
+import NoPageFound from "../../pages/404";
 
 const navigation = [
   { name: "Dashboard", href: "/admin", icon: HomeIcon, current: true },
@@ -45,8 +50,16 @@ const Dashboard: React.FC<Props> = (children) => {
   // it takes slug as params, rerturn compn base of the value slug.
   function slugParams(slug: any) {
     switch (slug) {
+      case "admin":
+        return <DashboardPage />;
       case "teams":
-        return <p>this is teams</p>
+        return <TeamPage />;
+      case "reports":
+        return <ReportPage />;
+      case "documents":
+        return <DocumentsPage />;
+      case "404":
+        return <NoPageFound />;
       default:
         break;
     }
@@ -142,7 +155,7 @@ const Dashboard: React.FC<Props> = (children) => {
                 </nav>
               </div>
               <div className="flex-shrink-0 flex border-t border-gray-200 p-4">
-                <a href="/" className="flex-shrink-0 group block">
+                <Link to="/404" className="flex-shrink-0 group block">
                   <div className="flex items-center">
                     <div>
                       <img
@@ -160,7 +173,7 @@ const Dashboard: React.FC<Props> = (children) => {
                       </p>
                     </div>
                   </div>
-                </a>
+                </Link>
               </div>
             </div>
           </Transition.Child>
@@ -210,7 +223,7 @@ const Dashboard: React.FC<Props> = (children) => {
               </nav>
             </div>
             <div className="flex-shrink-0 flex border-t border-gray-200 p-4">
-              <a href="/" className="flex-shrink-0 w-full group block">
+              <Link to="/404" className="flex-shrink-0 w-full group block">
                 <div className="flex items-center">
                   <div>
                     <img
@@ -228,7 +241,7 @@ const Dashboard: React.FC<Props> = (children) => {
                     </p>
                   </div>
                 </div>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -252,7 +265,7 @@ const Dashboard: React.FC<Props> = (children) => {
               </h1>
             </div>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 2xl:px-14">
-              {slugParams(slug)}
+              {slugParams(slug) ? slugParams(slug) : <DashboardPage />}
             </div>
           </div>
         </main>
