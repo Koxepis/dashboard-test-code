@@ -2,6 +2,7 @@ import { Menu, Transition } from "@headlessui/react";
 import { DotsVerticalIcon } from "@heroicons/react/outline";
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
+import MapComponent from "../../components/elements/Map";
 import ProjectCard from "../../components/elements/ProjectCard";
 import StatsCard from "../../components/elements/StatsCard";
 
@@ -103,6 +104,8 @@ const DashboardPage = () => {
           ))}
         </dl>
       </StatsCard>
+
+      <MapComponent />
 
       <ProjectCard>
         {pinnedProjects.map((project) => (

@@ -1,16 +1,16 @@
 import React from "react";
+import Dashboard from "./components/layout/Dahsboard";
+import Index from "./pages/";
+import LoginPage from "./pages/login";
+import NoPageFound from "./pages/404";
+import HelpersPage from "./shared/helpers/helpers";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import {
   ColorScheme,
   colors,
   extendTheme,
   VechaiProvider,
 } from "@vechaiui/react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Dashboard from "./components/layout/Dahsboard";
-import Index from "./pages/";
-import LoginPage from "./pages/login";
-import NoPageFound from "./pages/404";
-import HelpersPage from "./shared/helpers/helpers";
 
 function App() {
   const bee: ColorScheme = {
