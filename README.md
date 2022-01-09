@@ -1,12 +1,13 @@
-# Dashboard Test Code
+## Dashboard Test Code
 
-> _NOTE: This is a development branch. You can see the lastest commit in the [preview deployment](https://github.com/Shar51/dashboard-test-code/deployments/activity_log?environment=Preview)_
+### This is a test code as part of the recruitment for a front-end intern position at qlue
 
-> _NOTE: useAuth implementation can be seen on this commit:_ [_abae325..._](https://github.com/Shar51/dashboard-test-code/commit/abae325080c9d1878187c9e0fae5a970fc47eafa)
+> _NOTE: This is the **development branch**. You can see the lastest deployment of the latest commit in [preview](https://github.com/Shar51/dashboard-test-code/deployments/activity_log?environment=Preview)_
 
-This is part of a test code for front-end intern position at qlue
+> _NOTE: **static** useAuth implementation can be seen on this commit:_ [_abae325..._](https://github.com/Shar51/dashboard-test-code/commit/abae325080c9d1878187c9e0fae5a970fc47eafa)
 
-#### Tech Stack
+
+### Tech Stack
 
 These are the following tech stack that I used in this project.
 
@@ -18,7 +19,7 @@ These are the following tech stack that I used in this project.
 - [_ChartJs_](https://www.chartjs.org/)
 - [_Leaflet_](https://react-leaflet.js.org/)
 
-#### How to run it
+### How to run it
 
 Clone it with:
 
@@ -31,3 +32,7 @@ _`npm install`_
 Runs dev mode:
 
 _`npm run start`_
+
+#### Todo
+- add a landing page and login page
+- implementing authentication and protected page
