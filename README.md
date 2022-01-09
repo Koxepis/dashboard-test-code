@@ -1,6 +1,6 @@
 # Dashboard Test Code
 
-> _NOTE: This is a development branch._
+> _NOTE: This is a development branch. You can see the lastest commit in the [preview deployment](https://github.com/Shar51/dashboard-test-code/deployments/activity_log?environment=Preview)_
 
 > _NOTE: useAuth implementation can be seen on this commit:_ [_abae325..._](https://github.com/Shar51/dashboard-test-code/commit/abae325080c9d1878187c9e0fae5a970fc47eafa)
 
@@ -16,6 +16,7 @@ These are the following tech stack that I used in this project.
 - [_React Router_](https://reactrouter.com/)
 - [_React Table_](https://react-table.tanstack.com/)
 - [_ChartJs_](https://www.chartjs.org/)
+- [_Leaflet_](https://react-leaflet.js.org/)
 
 #### How to run it
 
