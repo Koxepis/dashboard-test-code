@@ -2,6 +2,8 @@
 
 > *NOTE: This is a development branch.*
 
+> *NOTE: useAuth implementation can be seen on e14af7b9*
+
 This is part of a test code for front-end intern position at qlue
 
 #### Tech Stack
