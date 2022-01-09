@@ -10,6 +10,7 @@ import Dashboard from "./components/layout/Dahsboard";
 import Index from "./pages/";
 import LoginPage from "./pages/login";
 import NoPageFound from "./pages/404";
+import HelpersPage from "./shared/helpers/helpers";
 
 function App() {
   const bee: ColorScheme = {
@@ -44,8 +45,10 @@ function App() {
             <Route path="/" element={<Index />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/404" element={<NoPageFound />} />
-            <Route path="/admin" element={<Dashboard />} />
-            <Route path="/admin/:slug" element={<Dashboard />} />
+            <Route element={<HelpersPage />}>
+              <Route path="/admin" element={<Dashboard />} />
+              <Route path="/admin/:slug" element={<Dashboard />} />
+            </Route>
             <Route path="*" element={<NoPageFound />} />
           </Routes>
         </BrowserRouter>
