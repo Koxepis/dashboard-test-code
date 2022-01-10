@@ -27,13 +27,13 @@ const TableComponent = (props: Props) => {
         <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
           <div
             className={classNames(
-              "overflow-hidden rounded-none border-gray-800",
+              "overflow-hidden rounded-none border-gray-200",
               props.className
             )}
           >
             <table
               {...getTableProps()}
-              className="min-w-full divide-y divide-gray-800"
+              className="min-w-full divide-y divide-gray-400"
             >
               <thead>
                 {headerGroups.map((headerGroup: any) => (
@@ -54,12 +54,12 @@ const TableComponent = (props: Props) => {
               </thead>
               <tbody
                 {...getTableBodyProps()}
-                className="divide-y divide-gray-400"
+                className="divide-y divide-gray-200"
               >
                 {rows.map((row, i) => {
                   prepareRow(row);
                   return (
-                    <tr {...row.getRowProps()}>
+                    <tr {...row.getRowProps()} className="hover:bg-gray-200">
                       {row.cells.map((cell: any) => {
                         return (
                           <td
