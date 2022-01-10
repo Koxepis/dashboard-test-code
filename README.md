@@ -1,10 +1,8 @@
-## Dashboard Test Code
+# Dashboard Test Code
 
-### This is a test code as part of the recruitment for a front-end intern position at qlue
+### This is a test code as part of the recruitment process for a front-end intern position at qlue
 
-> _NOTE: This is the **development branch**. You can see the lastest deployment of the latest commit in [preview](https://github.com/Shar51/dashboard-test-code/deployments/activity_log?environment=Preview)_
-
-> _NOTE: **static** useAuth implementation can be seen on this commit:_ [_abae325..._](https://github.com/Shar51/dashboard-test-code/commit/abae325080c9d1878187c9e0fae5a970fc47eafa)
+> _NOTE: Switch to the **development branch** and/or view the lastest deployment in [preview](https://github.com/Shar51/dashboard-test-code/deployments/activity_log?environment=Preview)_
 
 
 ### Tech Stack
