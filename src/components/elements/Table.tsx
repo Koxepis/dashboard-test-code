@@ -1,5 +1,5 @@
-import React from "react";
-import { useTable } from "react-table";
+import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/solid";
+import { useSortBy, useTable } from "react-table";
 
 interface Props {
   columns: any[];
@@ -12,10 +12,13 @@ interface Props {
 const TableComponent = (props: Props) => {
   const { columns, data } = props;
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-    useTable({
-      columns,
-      data,
-    });
+    useTable(
+      {
+        columns,
+        data,
+      },
+      useSortBy
+    );
 
   function classNames(...classes: any) {
     return classes.filter(Boolean).join(" ");
@@ -40,18 +43,32 @@ const TableComponent = (props: Props) => {
                   <tr {...headerGroup.getHeaderGroupProps()}>
                     {headerGroup.headers.map((column: any) => (
                       <th
-                        {...column.getHeaderProps()}
-                        scope="col"
-                        className={classNames(
-                          props.headerClass
+                        {...column.getHeaderProps(
+                          column.getSortByToggleProps()
                         )}
+                        scope="col"
+                        className={classNames(props.headerClass)}
                       >
-                        {column.render("Header")}
+                        <div className="flex items-center justify-center">
+                          {column.render("Header")}
+                          <span>
+                            {column.isSorted ? (
+                              column.isSortedDesc ? (
+                                <ChevronDownIcon className="w-4 h-4" />
+                              ) : (
+                                <ChevronUpIcon className="w-4 h-4" />
+                              )
+                            ) : (
+                              ""
+                            )}
+                          </span>
+                        </div>
                       </th>
                     ))}
                   </tr>
                 ))}
               </thead>
+
               <tbody
                 {...getTableBodyProps()}
                 className="divide-y divide-gray-200"
@@ -65,7 +82,7 @@ const TableComponent = (props: Props) => {
                           <td
                             {...cell.getCellProps()}
                             className={classNames(
-                              "px-6 py-4 whitespace-nowrap text-xs sm:text-sm font-normal",
+                              "px-6 py-4 whitespace-nowrap text-xs text-center sm:text-sm font-normal",
                               props.bodyClass
                             )}
                           >
