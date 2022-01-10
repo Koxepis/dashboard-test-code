@@ -29,7 +29,7 @@ function classNames(...classes: any) {
   return classes.filter(Boolean).join(" ");
 }
 interface Props {
-  children?: any;
+  children?: Object;
 }
 
 const Dashboard: React.FC<Props> = (children) => {
