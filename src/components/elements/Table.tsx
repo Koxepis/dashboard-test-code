@@ -1,5 +1,11 @@
 import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/solid";
-import { useGlobalFilter, useSortBy, useTable } from "react-table";
+import { Button } from "@vechaiui/react";
+import {
+  useGlobalFilter,
+  useSortBy,
+  useTable,
+  usePagination,
+} from "react-table";
 import FilterHelpers from "../modules/FilterHelpers";
 
 interface Props {
@@ -16,22 +22,27 @@ const TableComponent = (props: Props) => {
     getTableProps,
     getTableBodyProps,
     headerGroups,
-    rows,
+    page,
     prepareRow,
     state,
     setGlobalFilter,
+    nextPage,
+    previousPage,
+    canPreviousPage,
+    canNextPage,
   } = useTable(
     {
       columns,
       data,
     },
     useGlobalFilter,
-    useSortBy
+    useSortBy,
+    usePagination
   ) as any;
 
   const { globalFilter }: any = state;
 
-  function classNames(...classes: any) {
+  function classNames(...classes: any[]) {
     return classes.filter(Boolean).join(" ");
   }
 
@@ -89,7 +100,7 @@ const TableComponent = (props: Props) => {
                   {...getTableBodyProps()}
                   className="divide-y divide-gray-200"
                 >
-                  {rows.map((row: any, i: any) => {
+                  {page.map((row: any, i: number) => {
                     prepareRow(row);
                     return (
                       <tr {...row.getRowProps()} className="hover:bg-gray-200">
@@ -111,6 +122,30 @@ const TableComponent = (props: Props) => {
                   })}
                 </tbody>
               </table>
+
+              <div className="w-full bg-gray-100 flex flex-row justify-between">
+                <Button
+                  onClick={() => previousPage()}
+                  variant="outline"
+                  size="lg"
+                  color="gray"
+                  className="w-[50%] focus:ring-0 ring-gray-600 font-normal rounded-none"
+                  disabled={!canPreviousPage}
+                >
+                  Prev
+                </Button>
+
+                <Button
+                  onClick={() => nextPage()}
+                  variant="outline"
+                  size="lg"
+                  color="gray"
+                  className="w-[50%] focus:ring-0 ring-gray-600 font-normal rounded-none"
+                  disabled={!canNextPage}
+                >
+                  Next
+                </Button>
+              </div>
             </div>
           </div>
         </div>
