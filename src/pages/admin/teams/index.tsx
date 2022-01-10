@@ -9,7 +9,7 @@ const TeamPage = () => {
         accessor: "avatar",
         Cell: ({ row }: any) => {
           return (
-            <div className="h-14 w-14">
+            <div className="h-10 sm:h-14 w-10 sm:w-14">
               <img
                 className="max-h-full flex items-start rounded-full"
                 src={row.allCells[0].value}
@@ -38,6 +38,7 @@ const TeamPage = () => {
     ],
     []
   );
+
   const data = React.useMemo(
     () => [
       {
@@ -167,7 +168,7 @@ const TeamPage = () => {
         columns={columns}
         data={data}
         className="bg-white border border-gray-400 rounded-md shadow-md"
-        headerClass="px-6 py-4 text-center text-xs font-medium tracking-wide uppercase font-base text-gray-500"
+        headerClass=""
         bodyClass="text-gray-900"
       />
     </div>
