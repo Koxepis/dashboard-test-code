@@ -1,46 +1,38 @@
-# Getting Started with Create React App
+## Dashboard Test Code
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### This is a test code as part of the recruitment for a front-end intern position at qlue
 
-## Available Scripts
+> _NOTE: This is the **development branch**. You can see the lastest deployment of the latest commit in [preview](https://github.com/Shar51/dashboard-test-code/deployments/activity_log?environment=Preview)_
 
-In the project directory, you can run:
+> _NOTE: **static** useAuth implementation can be seen on this commit:_ [_abae325..._](https://github.com/Shar51/dashboard-test-code/commit/abae325080c9d1878187c9e0fae5a970fc47eafa)
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Tech Stack
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+These are the following tech stack that I used in this project.
 
-### `npm test`
+- [_ReactJs_](https://reactjs.org/ "ReactJs")
+- [_Typescipt_](https://www.typescriptlang.org/)
+- [_TailwindCSS_](https://tailwindcss.com/), [_HeroIcons_](https://github.com/tailwindlabs/heroicons), [_HeadlessUI_](https://headlessui.dev/)
+- [_React Router_](https://reactrouter.com/)
+- [_React Table_](https://react-table.tanstack.com/)
+- [_ChartJs_](https://www.chartjs.org/)
+- [_Leaflet_](https://react-leaflet.js.org/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### How to run it
 
-### `npm run build`
+Clone it with:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+_`git clone https://github.com/Shar51/dashboard-test-code.git`_
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Install dependencies:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+_`npm install`_
 
-### `npm run eject`
+Runs dev mode:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+_`npm run start`_
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Todo
+- add a landing page and login page
+- implementing authentication and protected page

@@ -29,7 +29,7 @@ function classNames(...classes: any) {
   return classes.filter(Boolean).join(" ");
 }
 interface Props {
-  children?: any;
+  children?: Object;
 }
 
 const Dashboard: React.FC<Props> = (children) => {
@@ -150,7 +150,7 @@ const Dashboard: React.FC<Props> = (children) => {
                     <div>
                       <img
                         className="inline-block h-10 w-10 rounded-full"
-                        src="https://pbs.twimg.com/profile_images/1410987287890993153/Duc_p2sF_400x400.jpg"
+                        src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.squarespace.com%2Fstatic%2F51b3dc8ee4b051b96ceb10de%2F51ce6099e4b0d911b4489b79%2F51ce61a3e4b0d911b449b106%2F1351960297005%2F1000w%2Fadam_west_batman.jpeg&f=1&nofb=1"
                         alt=""
                       />
                     </div>
@@ -218,7 +218,7 @@ const Dashboard: React.FC<Props> = (children) => {
                   <div>
                     <img
                       className="inline-block h-10 lg:h-12 w-10 lg:w-12 rounded-full"
-                      src="https://pbs.twimg.com/profile_images/1410987287890993153/Duc_p2sF_400x400.jpg"
+                      src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.squarespace.com%2Fstatic%2F51b3dc8ee4b051b96ceb10de%2F51ce6099e4b0d911b4489b79%2F51ce61a3e4b0d911b449b106%2F1351960297005%2F1000w%2Fadam_west_batman.jpeg&f=1&nofb=1"
                       alt=""
                     />
                   </div>
