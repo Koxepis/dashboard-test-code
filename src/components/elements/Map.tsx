@@ -1,42 +1,72 @@
+import { useEffect, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import mockData from "./../../shared/helpers/MOCK_DATA.json";
 
 const MapComponent = () => {
-  console.log(mockData[0].address.city);
+  // console.log(mockData[0].address.city);
+
+  // console.log(mockData.findIndex((city) => city.id === 3777));
+  const [dataArr, setDataArr] = useState([]) as any;
+
+  const fetchData = async () => {
+    const response = await fetch(
+      "https://supercharge.info/service/supercharge/allSites"
+    );
+    const data: any[] = await response.json();
+    sessionStorage.setItem("all-sites", JSON.stringify(data));
+    setDataArr(data);
+    console.log(data);
+  };
+
+  useEffect(() => {
+    if (!sessionStorage.getItem("all-sites")) {
+      fetchData();
+    } else {
+      let data = sessionStorage.getItem("all-sites");
+      if (data) {
+        data = JSON.parse(data);
+        setDataArr(data);
+      }
+    }
+  }, []);
 
   return (
     <div className="pb-12 flex flex-col items-center justify-center space-y-12">
       <div className="min-w-full mx-auto">
-        <MapContainer
-          center={[1.292839, 103.859512]}
-          zoom={12}
-          scrollWheelZoom={true}
-        >
-          <TileLayer
-            attribution="Dashboard Test Code"
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
+        {dataArr.length > 0 && (
+          <MapContainer
+            center={[
+              dataArr[3554].gps.latitude as number,
+              dataArr[3554].gps.longitude as number,
+            ]}
+            zoom={2}
+            scrollWheelZoom={true}
+          >
+            <TileLayer
+              attribution="My Dashboard Test Code"
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
 
-          {mockData
-            .filter((location) => location.address.city === "Singapore")
-            .map((item) => (
-              <Marker
-                key={item.id}
-                position={
-                  [
-                    item.gps.latitude as number,
-                    item.gps.longitude as any,
-                  ] as any
-                }
-              >
-                <Popup>
-                  <p>Name: {item.name}</p>
-                  <p>Address: {item.address.street}</p>
-                  <p>Status: {item.status}</p>
-                </Popup>
-              </Marker>
-            ))}
-        </MapContainer>
+            {dataArr
+              .filter((location: any) => location.address.region === "Asia Pacific")
+              .map((item: any) => (
+                <Marker
+                  key={item.id}
+                  position={
+                    [
+                      item.gps.latitude as number,
+                      item.gps.longitude as any,
+                    ] as any
+                  }
+                >
+                  <Popup>
+                    <p>Name: {item.name}</p>
+                    <p>Address: {item.address.street}</p>
+                    <p>Status: {item.status}</p>
+                  </Popup>
+                </Marker>
+              ))}
+          </MapContainer>
+        )}
       </div>
     </div>
   );
