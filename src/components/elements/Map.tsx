@@ -2,9 +2,6 @@ import { useEffect, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 
 const MapComponent = () => {
-  // console.log(mockData[0].address.city);
-
-  // console.log(mockData.findIndex((city) => city.id === 3777));
   const [dataArr, setDataArr] = useState([]) as any;
 
   const fetchData = async () => {
@@ -35,10 +32,10 @@ const MapComponent = () => {
         {dataArr.length > 0 && (
           <MapContainer
             center={[
-              dataArr[3554].gps.latitude as number,
-              dataArr[3554].gps.longitude as number,
+              dataArr[2822].gps.latitude as number,
+              dataArr[2822].gps.longitude as number,
             ]}
-            zoom={2}
+            zoom={7}
             scrollWheelZoom={true}
           >
             <TileLayer
@@ -47,7 +44,7 @@ const MapComponent = () => {
             />
 
             {dataArr
-              .filter((location: any) => location.address.region === "Asia Pacific")
+              .filter((location: any) => location.address.country === "Taiwan")
               .map((item: any) => (
                 <Marker
                   key={item.id}
