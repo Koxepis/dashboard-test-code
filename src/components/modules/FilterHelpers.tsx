@@ -1,7 +1,7 @@
 import { FormControl, Input } from "@vechaiui/react";
 interface Props {
   filter: any;
-  setFilter: any;
+  setFilter: (string: String) => {};
 }
 
 const FilterHelpers: React.FC<Props> = ({ filter, setFilter }) => {
@@ -17,7 +17,7 @@ const FilterHelpers: React.FC<Props> = ({ filter, setFilter }) => {
               className="focus:ring-gray-600"
               value={filter || ""}
               onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-                setFilter(event.target.value as any)
+                setFilter(event.target.value)
               }
             />
           </span>
