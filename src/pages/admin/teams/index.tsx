@@ -10,6 +10,7 @@ const TeamPage = () => {
     );
     const data: any[] = await response.json();
     sessionStorage.setItem("all-sites", JSON.stringify(data));
+    setDataArr(data);
   };
 
   useEffect(() => {
@@ -46,7 +47,6 @@ const TeamPage = () => {
                   rel="noreferrer"
                   href={`https://www.google.com/maps/@${gps.latitude},${gps.longitude},23z`}
                   target="_blank"
-
                 >
                   {gps.latitude}, {gps.longitude}
                 </a>
@@ -70,13 +70,15 @@ const TeamPage = () => {
 
   return (
     <div className="mt-3">
-      <Table
-        columns={columns}
-        data={data}
-        className="bg-white border border-gray-400 rounded-md shadow-md"
-        headerClass=""
-        bodyClass="text-gray-900"
-      />
+      {dataArr.length > 0 && (
+        <Table
+          columns={columns}
+          data={data}
+          className="bg-white border border-gray-400 rounded-md shadow-md"
+          headerClass=""
+          bodyClass="text-gray-900"
+        />
+      )}
     </div>
   );
 };
