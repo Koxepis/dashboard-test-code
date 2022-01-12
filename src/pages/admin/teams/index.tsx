@@ -24,30 +24,42 @@ const TeamPage = () => {
     }
   }, []);
 
-  const columns = React.useMemo(
-    () =>
-      dataArr[0]
-        ? Object.keys(dataArr[0])
-            .filter(
-              (key) =>
-                key !== "gps" &&
-                key !== "address" &&
-                key !== "counted" &&
-                key !== "solarCanopy" &&
-                key !== "battery" &&
-                key !== "urlDiscuss"
-            )
-            .map((key) => {
-              if (key === "id")
-                return {
-                  Header: key,
-                  accessor: key,
-                };
-              return { Header: key, accessor: key };
-            })
-        : [],
-    [dataArr]
-  );
+  const columns = React.useMemo(() => {
+    if (dataArr.length === 0) return [];
+    return Object.keys(dataArr[0])
+      .filter(
+        (key) =>
+          key !== "locationId" &&
+          key !== "counted" &&
+          key !== "solarCanopy" &&
+          key !== "battery" &&
+          key !== "urlDiscuss"
+      )
+      .map((key) => {
+        switch (key) {
+          case "gps":
+            return {
+              id: key,
+              Header: key,
+              accessor: ({ gps }: any) => (
+                <>
+                  {gps.latitude}, {gps.longitude}
+                </>
+              ),
+            };
+          case "address":
+            return {
+              id: key,
+              Header: key,
+              accessor: ({ address }: any) =>
+                `${address.street}, ${address.city}`,
+              maxWidth: 20,
+            };
+          default:
+            return { Header: key, accessor: key };
+        }
+      });
+  }, [dataArr]);
 
   const data = React.useMemo(() => [...dataArr], [dataArr]) as any[];
 
