@@ -123,29 +123,31 @@ const TableComponent = (props: Props) => {
                 </tbody>
               </table>
 
-              <div className="w-full bg-gray-100 flex flex-row justify-between">
-                <Button
-                  onClick={() => previousPage()}
-                  variant="outline"
-                  size="lg"
-                  color="gray"
-                  className="w-[50%] focus:ring-0 ring-gray-600 font-normal rounded-none"
-                  disabled={!canPreviousPage}
-                >
-                  Prev
-                </Button>
+              {props.data.length >= 10 && (
+                <div className="w-full bg-gray-100 flex flex-row justify-between">
+                  <Button
+                    onClick={() => previousPage()}
+                    variant="outline"
+                    size="lg"
+                    color="gray"
+                    className="w-[50%] focus:ring-0 ring-gray-600 font-normal rounded-none"
+                    disabled={!canPreviousPage}
+                  >
+                    Prev
+                  </Button>
 
-                <Button
-                  onClick={() => nextPage()}
-                  variant="outline"
-                  size="lg"
-                  color="gray"
-                  className="w-[50%] focus:ring-0 ring-gray-600 font-normal rounded-none"
-                  disabled={!canNextPage}
-                >
-                  Next
-                </Button>
-              </div>
+                  <Button
+                    onClick={() => nextPage()}
+                    variant="outline"
+                    size="lg"
+                    color="gray"
+                    className="w-[50%] focus:ring-0 ring-gray-600 font-normal rounded-none"
+                    disabled={!canNextPage}
+                  >
+                    Next
+                  </Button>
+                </div>
+              )}
             </div>
           </div>
         </div>
