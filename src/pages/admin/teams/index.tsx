@@ -1,3 +1,4 @@
+import { Spinner } from "@vechaiui/react";
 import React, { useEffect, useState } from "react";
 import Table from "../../../components/elements/Table";
 
@@ -70,7 +71,7 @@ const TeamPage = () => {
 
   return (
     <div className="mt-3">
-      {dataArr.length > 0 && (
+      {dataArr.length > 0 ? (
         <Table
           columns={columns}
           data={data}
@@ -78,6 +79,10 @@ const TeamPage = () => {
           headerClass=""
           bodyClass="text-gray-900"
         />
+      ) : (
+        <div className="flex flex-wrap w-full p-8 space-x-2">
+          <Spinner />
+        </div>
       )}
     </div>
   );
