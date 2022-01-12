@@ -42,9 +42,14 @@ const TeamPage = () => {
               id: key,
               Header: key,
               accessor: ({ gps }: any) => (
-                <>
+                <a
+                  rel="noreferrer"
+                  href={`https://www.google.com/maps/@${gps.latitude},${gps.longitude},23z`}
+                  target="_blank"
+
+                >
                   {gps.latitude}, {gps.longitude}
-                </>
+                </a>
               ),
             };
           case "address":
